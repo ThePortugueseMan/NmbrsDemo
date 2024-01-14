@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "nclKTmUa4hGlnG52yEHHH/F8u31p/8ILQuB2J79+M+s=",
+  "Source": "NmbrsDemo",
+  "BasePath": "_content/NmbrsDemo",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "NmbrsDemo\\wwwroot",
+      "Source": "NmbrsDemo",
+      "ContentRoot": "C:\\Users\\ThePortugueseMan\\Documents\\NmbrsInterview\\NmbrsInterviewDemo\\NmbrsDemo\\NmbrsDemo\\wwwroot\\",
+      "BasePath": "_content/NmbrsDemo",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\ThePortugueseMan\\Documents\\NmbrsInterview\\NmbrsInterviewDemo\\NmbrsDemo\\NmbrsDemo\\wwwroot\\favicon.ico",
+      "SourceId": "NmbrsDemo",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ThePortugueseMan\\Documents\\NmbrsInterview\\NmbrsInterviewDemo\\NmbrsDemo\\NmbrsDemo\\wwwroot\\",
+      "BasePath": "_content/NmbrsDemo",
+      "RelativePath": "favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    }
+  ]
+}
