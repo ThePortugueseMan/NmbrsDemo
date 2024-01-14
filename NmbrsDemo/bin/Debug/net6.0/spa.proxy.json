@@ -2,7 +2,7 @@
 "SpaProxyServer": {
 "ServerUrl": "https://localhost:44469",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "C:\\Users\\ThePortugueseMan\\Documents\\NmbrsInterview\\NmbrsInterviewDemo\\NmbrsDemo\\NmbrsDemo\\ClientApp\\",
+"WorkingDirectory": "C:\\Users\\cemar\\Documents\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo\\ClientApp\\",
 "MaxTimeoutInSeconds": "120"
 }
 }

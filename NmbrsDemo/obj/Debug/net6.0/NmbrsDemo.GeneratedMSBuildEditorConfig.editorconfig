@@ -9,17 +9,17 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = NmbrsDemo
 build_property.RootNamespace = NmbrsDemo
-build_property.ProjectDir = C:\Users\ThePortugueseMan\Documents\NmbrsInterview\NmbrsInterviewDemo\NmbrsDemo\NmbrsDemo\
+build_property.ProjectDir = C:\Users\cemar\Documents\NmbrsDemo\NmbrsDemo\NmbrsDemo\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ThePortugueseMan\Documents\NmbrsInterview\NmbrsInterviewDemo\NmbrsDemo\NmbrsDemo
+build_property.MSBuildProjectDirectory = C:\Users\cemar\Documents\NmbrsDemo\NmbrsDemo\NmbrsDemo
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/ThePortugueseMan/Documents/NmbrsInterview/NmbrsInterviewDemo/NmbrsDemo/NmbrsDemo/Pages/Error.cshtml]
+[C:/Users/cemar/Documents/NmbrsDemo/NmbrsDemo/NmbrsDemo/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ThePortugueseMan/Documents/NmbrsInterview/NmbrsInterviewDemo/NmbrsDemo/NmbrsDemo/Pages/_ViewImports.cshtml]
+[C:/Users/cemar/Documents/NmbrsDemo/NmbrsDemo/NmbrsDemo/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ThePortugueseMan\\Documents\\NmbrsInterview\\NmbrsInterviewDemo\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo.csproj": {}
+    "C:\\Users\\cemar\\Documents\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ThePortugueseMan\\Documents\\NmbrsInterview\\NmbrsInterviewDemo\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo.csproj": {
+    "C:\\Users\\cemar\\Documents\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ThePortugueseMan\\Documents\\NmbrsInterview\\NmbrsInterviewDemo\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo.csproj",
+        "projectUniqueName": "C:\\Users\\cemar\\Documents\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo.csproj",
         "projectName": "NmbrsDemo",
-        "projectPath": "C:\\Users\\ThePortugueseMan\\Documents\\NmbrsInterview\\NmbrsInterviewDemo\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo.csproj",
-        "packagesPath": "C:\\Users\\ThePortugueseMan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ThePortugueseMan\\Documents\\NmbrsInterview\\NmbrsInterviewDemo\\NmbrsDemo\\NmbrsDemo\\obj\\",
+        "projectPath": "C:\\Users\\cemar\\Documents\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo.csproj",
+        "packagesPath": "C:\\Users\\cemar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\cemar\\Documents\\NmbrsDemo\\NmbrsDemo\\NmbrsDemo\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ThePortugueseMan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cemar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +44,10 @@
               "target": "Package",
               "version": "[6.0.13, )"
             },
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -68,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.115\\RuntimeIdentifierGraph.json"
         }
       }
     }

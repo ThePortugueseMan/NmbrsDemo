@@ -19,19 +19,19 @@ public class EmployeeController : ControllerBase
     [HttpGet]
     public List<Employee> GetList()
     {
-        return EmployeeLogic.GetEmployeeList();
+        return EmployeeInfo.GetEmployeeList();
     }
 
     [HttpPost]
     public bool NewEmployee(Employee employee)
     {
-        return EmployeeLogic.AddNewEmployee(employee);
+        return EmployeeInfo.AddNewEmployee(employee);
     }
 
 
     [HttpDelete]
     public bool RemoveEmployeeByEmployeeId([FromQuery] string employeeid)
     {
-        return EmployeeLogic.RemoveEmployeeByID(employeeid);
+        return EmployeeInfo.RemoveEmployeeByID(employeeid);
     }
 }
