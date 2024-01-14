@@ -28,7 +28,41 @@ namespace NmbrsDemo.Database
             isInitialized = true;
         }
 
-        public static Employee AddEmployeeInfo(Employee employee) 
+        public static List<Employee> GetEmployeeInfoList()
+        {
+            if (!isInitialized) InitializeDb();
+
+            List<Employee> employeeList = new List<Employee>();
+
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                var tableCmd = connection.CreateCommand();
+
+                tableCmd.CommandText = "SELECT * FROM EmployeeInfo";
+
+                using (var reader = tableCmd.ExecuteReader())
+                {
+                    Employee auxEmployee;
+                    while(reader.Read())
+                    {
+                        auxEmployee = new Employee()
+                        {
+                            EmployeeId = ((Int64)reader.GetValue("Id")).ToString(),
+                            FirstName = reader.GetString("FirstName"),
+                            LastName = reader.GetString("LastName")
+                        };
+                        employeeList.Add(auxEmployee);
+                    }
+                }
+
+                connection.Close();
+            }
+
+            return employeeList;
+        }
+
+        public static bool AddEmployeeInfo(Employee employee) 
         {
             if (!isInitialized) InitializeDb();
 
@@ -41,19 +75,34 @@ namespace NmbrsDemo.Database
                     " (FirstName, LastName)" +
                     $" VALUES (\'{employee.FirstName}\', \'{employee.LastName}\');" +
                     $" SELECT * FROM EmployeeInfo " +
-                    $" WHERE where Id = last_insert_rowid();";
+                    $" WHERE Id = last_insert_rowid();";
 
-                using (var reader = tableCmd.ExecuteReader())
-                {
-                    employee.EmployeeId = reader.GetString("Id");
-                    employee.FirstName = reader.GetString("FirstName");
-                    employee.LastName = reader.GetString("LastName");
-                }
+                tableCmd.ExecuteNonQuery();
 
                 connection.Close();
             }
 
-            return employee;
+            return true;
+        }
+
+        public static bool RemoveEmployeeById(string employeeId)
+        {
+            if (!isInitialized) InitializeDb();
+
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                var tableCmd = connection.CreateCommand();
+
+                tableCmd.CommandText = "DELETE FROM EmployeeInfo" +
+                    $" WHERE Id = {employeeId};";
+
+                tableCmd.ExecuteNonQuery();
+
+                connection.Close();
+            }
+
+            return true;
         }
     }
 }

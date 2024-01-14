@@ -4,6 +4,17 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+.navbar-nmbrs {
+  background-color: #1c98eb;
+}
+
+.nav-bar-logo {
+  height: inherit;
+  object-fit: contain;
+  display: block;
+  height: 45px;
+}
+
 html {
   font-size: 14px;
 }
@@ -15,4 +26,8 @@ html {
 
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.nav-text{
+    color:white !important;
 }

@@ -16,25 +16,24 @@ export class EmployeeService {
 
   public getEmployeeList(): Observable<Employee[]> {
     return this.http.get<Employee[]>(this.baseUrl + 'employee');
-    //this.http.get<Employee[]>(this.baseUrl + 'employee').subscribe(result => {
-    //  this.employeeList = result;
-    //}, error => console.error(error));
-    //return this.employeeList;
   }
 
-  public setNewEmployee(newEmployee: Employee): void {
+  public setNewEmployee(newEmployee: Employee): Observable<boolean> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    this.http.post(this.baseUrl + 'employee', newEmployee, { headers }).subscribe(result => {
-      var resultAux = result;
-    }, error => console.error(error));
+    return this.http.post<boolean>(this.baseUrl + 'employee', newEmployee, { headers });
   }
 
-  public removeEmployeeByEmployeeId(employeeId: string): void {
+  public removeEmployeeByEmployeeId(employeeId: string): Observable<boolean> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    this.http.delete(this.baseUrl + `employee?employeeid=${employeeId}`, { headers }).subscribe(result => {
-      var resultAux = result;
-    }, error => console.error(error));
+    return this.http.delete<boolean>(this.baseUrl + `employee?employeeid=${employeeId}`, { headers });
   }
+
+  //public removeEmployeeByEmployeeId(employeeId: string): void {
+  //  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  //  this.http.delete(this.baseUrl + `employee?employeeid=${employeeId}`, { headers }).subscribe(result => {
+  //    var resultAux = result;
+  //  }, error => console.error(error));
+  //}
   
 }
 

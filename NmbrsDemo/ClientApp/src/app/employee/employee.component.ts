@@ -62,20 +62,34 @@ export class EmployeeComponent {
   }
 
   removeSelectedEmployeeClick(employeeId: string) {
-    this.employeeService.removeEmployeeByEmployeeId(employeeId);
+    this.employeeService.removeEmployeeByEmployeeId(employeeId)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(
+        result => {
+          this.getEmployeeListFromService();
+        },
+        error => console.error(error)
+      );
+
+    this.newEmployee = NewEmployee();;
     this.deleteIsActive = false;
-    this.fetchedList = false;
-    this.getEmployeeListFromService();
   }
 
   submitNewEmployeeClick(firstName: string, lastName: string) {
     this.newEmployee.firstName = firstName;
     this.newEmployee.lastName = lastName;
-    this.employeeService.setNewEmployee(this.newEmployee);
+    this.employeeService.setNewEmployee(this.newEmployee)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe(
+        result => {
+          this.getEmployeeListFromService();
+        },
+        error => console.error(error)
+      );
 
-    this.showAddEmployeeCell = false;
-    this.fetchedList = false;
-    this.getEmployeeListFromService();
+    this.newEmployee = NewEmployee();
+    this.newEmployeeFirstName = '';
+    this.newEmployeeLastName = '';
   }
 }
 

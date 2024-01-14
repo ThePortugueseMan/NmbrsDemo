@@ -1,9 +1,11 @@
 <header>
   <nav
-    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
-  >
+    class="navbar-nmbrs navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
     <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">NmbrsDemo</a>
+      <a class="navbar-brand" [routerLink]="['/']">
+        <img class="nav-bar-logo" src="../../assets/nmbrs-logo.png">
+      </a>
+
       <button class="navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -19,16 +21,10 @@
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+            <a class="nav-link nav-text" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
-          </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/employee']">List of employees</a>
+            <a class="nav-link nav-text" [routerLink]="['/employee']">List of employees</a>
           </li>
         </ul>
       </div>

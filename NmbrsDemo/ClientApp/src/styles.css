@@ -1,5 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --main-bg-color: #e5ecf4;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+@font-face {
+  font-family: ubuntu-bold;
+  src: url(\fonts\Ubuntu-Bold.ttf.woff);
+}
+
+@font-face {
+  font-family: source-sans-pro;
+  src: url(\fonts\source-sans-pro.regular.ttf);
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
@@ -13,4 +31,172 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+#body-m {
+  background-color: #e6edf5;
+}
+
+.base-container {
+  background-color: #ffffff;
+  max-width: 1140px;
+  width: 100%;
+  padding: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  box-sizing: border-box;
+  display: block;
+  outline-style: solid;
+  outline-width: .15rem;
+  outline-color: #dee5ed;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  border-radius: 25px;
+}
+
+.divider-container {
+  width: calc(100% + 4rem);
+  line-height: 15rem;
+  text-align: left;
+  margin-left: -2rem;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  color: var(--main-bg-color);
+  background-color: var(--main-bg-color);
+  opacity: 1;
+}
+
+.container-header {
+  font-family: ubuntu-bold;
+  color: #1b1f2b
+}
+
+.container-body {
+  font-family: source-sans-pro;
+  font-size: 1.5em;
+  color: #1b1f2b;
+}
+
+.nav-text {
+  font-family: ubuntu-bold;
+  color: white;
+  font-size: 17px;
+}
+
+
+
+.btn-base {
+  background-color: #1c98eb;
+  border: 1px solid rgb(209,213,219);
+  border-radius: .25rem;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .5rem 0.5rem .5rem;
+  text-align: center;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 10px;
+}
+
+.btn-base:hover {
+  background-color: rgb(249,250,251);
+}
+
+.btn-base:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.btn-base:focus-visible {
+  box-shadow: none;
+}
+
+.btn-red {
+  background-color: #b91b2a !important;
+  border: 1px solid #b91b2a !important;
+  color: #fff;
+}
+
+.btn-red:hover {
+  background-color: rgb(249,250,251);
+}
+
+.btn-secondary {
+  background-color: #fff;
+  border: 1px solid #e5ecf4;
+  border-radius: .25rem;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  font-family: sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  line-height: 1.25rem;
+  padding: .5rem 0.5rem .5rem;
+  text-align: center;
+  text-decoration: none #D1D5DB solid;
+  text-decoration-thickness: auto;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-right: 10px;
+}
+
+  .btn-secondary:hover {
+    background-color: rgb(249,250,251);
+    color: #383838;
+  }
+
+.btn-secondary:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  table-layout: fixed;
+}
+
+  .styled-table thead tr {
+    background-color: #1c98eb;
+    color: #ffffff;
+    text-align: left;
+  }
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #1c98eb;
+}
+
+.styled-table tbody th first-of-type {
+  border-bottom: 2px solid #1c98eb;
 }
