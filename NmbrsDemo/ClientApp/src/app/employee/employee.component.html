@@ -56,4 +56,4 @@
   </div>
 </div>
 
-<app-employeefinance *ngIf="showDetails" [employeeId]="detailEmployeeId"><app-employeefinance>
+<app-employeefinance *ngIf="showDetails" [employeeId]="detailEmployeeId" [showDetails]="showDetails" (showDetailsChange)="onShowDetailsChange($event)"><app-employeefinance>

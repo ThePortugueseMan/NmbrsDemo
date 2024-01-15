@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EmployeeFinanceService } from './employeefinance.service';
@@ -10,6 +10,8 @@ import { first, last, Subject, takeUntil } from 'rxjs';
 })
 export class EmployeeFinanceComponent {
   @Input() employeeId: string = '';
+  @Input() showDetails: boolean = true;
+  @Output() showDetailsChange = new EventEmitter<boolean>();
 
   public baseUrl: string = '';
   public fetchedInfo: boolean = false;
@@ -42,7 +44,8 @@ export class EmployeeFinanceComponent {
   }
 
   backButtonClick() {
-
+    this.showDetails = false;
+    this.showDetailsChange.emit(this.showDetails);
   }
 
   cancelEditButtonClick() {

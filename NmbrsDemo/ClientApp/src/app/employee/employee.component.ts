@@ -104,6 +104,10 @@ export class EmployeeComponent {
     this.detailEmployeeId = employeeId;
     this.showDetails = true;
   }
+
+  onShowDetailsChange(newShowDetails: boolean) {
+    this.showDetails = newShowDetails;
+  }
 }
 
 interface Employee {
