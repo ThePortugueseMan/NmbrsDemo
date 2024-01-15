@@ -60,7 +60,8 @@ namespace NmbrsDemo.Database
                         {
                             EmployeeId = ((Int64)reader.GetValue("Id")).ToString(),
                             FirstName = reader.GetString("FirstName"),
-                            LastName = reader.GetString("LastName")
+                            LastName = reader.GetString("LastName"),
+                            EmployeeTypeId = ((Int64)reader.GetValue("EmployeeTypeId")).ToString()
                         };
                         employeeList.Add(auxEmployee);
                     }
@@ -83,7 +84,7 @@ namespace NmbrsDemo.Database
 
                 tableCmd.CommandText = "INSERT INTO EmployeeInfo" +
                     " (FirstName, LastName, EmployeeTypeId)" +
-                    $" VALUES (\'{employee.FirstName}\', \'{employee.LastName}\',1);" +
+                    $" VALUES (\'{employee.FirstName}\', \'{employee.LastName}\',{employee.EmployeeTypeId});" +
                     $" SELECT * FROM EmployeeInfo " +
                     $" WHERE Id = last_insert_rowid();";
 
@@ -91,6 +92,8 @@ namespace NmbrsDemo.Database
 
                 connection.Close();
             }
+
+            InsertOrUpdateGrossAnnualSalaryById(employee.EmployeeId, 0);
 
             return true;
         }
@@ -151,6 +154,8 @@ namespace NmbrsDemo.Database
                         }
                     }
                 }
+
+                if (returnObj == null) returnObj = new RegularEmployeeFinance(0);
                 connection.Close();
                 return (IEmployeeFinance)returnObj;
             }
@@ -165,7 +170,7 @@ namespace NmbrsDemo.Database
                 var tableCmd = connection.CreateCommand();
 
                 tableCmd.CommandText = "INSERT OR IGNORE INTO EmployeeFinance" +
-                    $" VALUES ({employeeId},{grossAnnualSalary}" +
+                    $" VALUES ({employeeId},{grossAnnualSalary});" +
                     " UPDATE EmployeeFinance" +
                     $" SET GrossAnnualSalary = {grossAnnualSalary} WHERE EmployeeId = {employeeId}";
 
@@ -175,5 +180,6 @@ namespace NmbrsDemo.Database
             }
             return success;
         }
+
     }
 }

@@ -13,6 +13,9 @@ public class SpecialEmployeeFinance : EmployeeFinance
     public override void CalculateFields()
     {
         annualCostToEmployer = (grossAnnualSalary * EmployerCostPercentageOnGross) - EmployerDiscountOnAnnual;
+        if (annualCostToEmployer < 0) annualCostToEmployer = 0;
+
         netAnnualSalary = grossAnnualSalary * EmployeePercentageOnGross;
+        if (netAnnualSalary < 0) netAnnualSalary = 0;
     }
 }

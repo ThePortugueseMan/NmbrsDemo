@@ -32,6 +32,9 @@ public abstract class EmployeeFinance : IEmployeeFinance
     public virtual void CalculateFields()
     {
         annualCostToEmployer = GrossAnnualSalary * EmployerCostPercentageOnGross;
+        if (annualCostToEmployer < 0) annualCostToEmployer = 0;
+
         netAnnualSalary = GrossAnnualSalary * EmployeePercentageOnGross;
+        if (netAnnualSalary < 0) netAnnualSalary = 0;
     }
 }

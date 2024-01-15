@@ -1,11 +1,11 @@
-<h1 class="container-header" id="tableLabel">Employee Finance</h1>
-<hr class="divider-container" size="6">
+<!--<h1 class="container-header" id="tableLabel">Employee Finance</h1>
+<hr class="divider-container" size="6">-->
 <p *ngIf="!fetchedInfo"><em>Loading...</em></p>
 <div>
   <div>
     <h3>Gross Annual Salary</h3>
     <input *ngIf="!editMode" value="{{financeInfo.grossAnnualSalary}}" disabled>
-    <input *ngIf="editMode" value="{{financeInfo.grossAnnualSalary}}">
+    <input *ngIf="editMode" [(ngModel)]="newGrossAnnualSalary" id="newGrossAnnualSalary" name="newGrossAnnualSalary" value="{{financeInfo.grossAnnualSalary}}">
   </div>
   <div>
     <h3>Net Annual Salary</h3>
@@ -15,14 +15,13 @@
     <h3>Annual Cost to Employer</h3>
     <input value="{{financeInfo.annualCostToEmployer}}" disabled>
   </div>
-  <div>
-    <button *ngIf="!editMode" class="btn btn-base" (click)="editButtonClick()">Edit</button>
-    <button *ngIf="!editMode" class="btn btn-base btn-secondary" (click)="backButtonClick()">Back</button>  
+  <div *ngIf="!editMode" class="btn-div">
+    <button class="btn btn-base" (click)="editButtonClick()">Edit</button>
+    <button class="btn btn-base btn-secondary" (click)="backButtonClick()">Back</button>  
   </div>
-  
-  <div>
-    <button *ngIf="editMode" class="btn btn-base" (click)="submitNewGrossAnnualSalary(newGrossAnnualSalary)">Submit</button>
-    <button *ngIf="editMode" class="btn btn-base btn-secondary" (click)="cancelEditButtonClick()">Cancel</button>
+  <div *ngIf="editMode" class="btn-div">
+    <button class="btn btn-base" (click)="submitNewGrossAnnualSalary(newGrossAnnualSalary)">Submit</button>
+    <button class="btn btn-base btn-secondary" (click)="cancelEditButtonClick()">Cancel</button>
   </div>
 </div>
 

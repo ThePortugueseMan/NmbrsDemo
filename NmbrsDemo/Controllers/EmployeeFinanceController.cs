@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NmbrsDemo.Logic;
 using NmbrsDemo.Models;
@@ -23,10 +24,25 @@ public class EmployeeFinanceController : ControllerBase
     }
 
     [HttpPost]
-    public bool InsertOrUpdateGrossAnnualSalaryById([FromQuery] string employeeid)
+    public async Task<bool> InsertOrUpdateGrossAnnualSalaryById([FromQuery] string employeeid)
     {
-        string body = Request.Body.ToString();
-        decimal grossAnnualSalary = Decimal.Parse(body);
-        return EmployeeFinanceLogic.InsertOrUpdateGrossAnnualSalaryById(employeeid, grossAnnualSalary);
+        JObject jsonBody;
+        decimal grossAnnualSalary = 0M;
+
+        try
+        {
+            using (StreamReader reader = new StreamReader(Request.Body))
+            {
+                string body = await reader.ReadToEndAsync();
+                jsonBody = JsonConvert.DeserializeObject<JObject>(body);
+            }
+
+            grossAnnualSalary = Decimal.Parse((string)jsonBody["grossAnnualSalary"]);
+            return EmployeeFinanceLogic.InsertOrUpdateGrossAnnualSalaryById(employeeid, grossAnnualSalary);
+        }
+        catch(Exception e)
+        {
+            return false;
+        }
     }
 }

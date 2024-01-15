@@ -37,10 +37,12 @@ export class EmployeeService {
   
 }
 
+
 interface Employee {
   employeeId: string;
   firstName: string;
   lastName: string;
+  employeeTypeId: string;
 }
 
 function NewEmployee(): Employee {
@@ -48,5 +50,6 @@ function NewEmployee(): Employee {
     employeeId: '',
     firstName: '',
     lastName: '',
+    employeeTypeId: ''
   }
 }

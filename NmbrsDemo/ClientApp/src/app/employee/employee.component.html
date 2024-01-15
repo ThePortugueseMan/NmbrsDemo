@@ -1,5 +1,6 @@
-<div *ngIf="!showDetails">
-  <h1 class="container-header" id="tableLabel">Employee List</h1>
+<div>
+  <h1 *ngIf="!showDetails" class="container-header" id="tableLabel">Employee List</h1>
+  <h1 *ngIf="showDetails" class="container-header" id="tableLabel">Employee Finance - {{employeeDetail.firstName}} {{employeeDetail.lastName}}</h1>
   <hr class="divider-container" size="6">
   <p *ngIf="!fetchedList && !showDetails"><em>Loading...</em></p>
   <div *ngIf="fetchedList && !showDetails">
@@ -9,6 +10,7 @@
           <th>Id</th>
           <th>First Name</th>
           <th>Last Name</th>
+          <th>Type</th>
           <th *ngIf="deleteIsActive">Delete</th>
           <th *ngIf="!deleteIsActive"></th>
         </tr>
@@ -18,6 +20,7 @@
           <td>{{ employee.employeeId }}</td>
           <td>{{ employee.firstName }}</td>
           <td>{{ employee.lastName }}</td>
+          <td>{{ employee.employeeTypeId == '0' ? "Regular" : "Special" }}</td>
           <td *ngIf="deleteIsActive">
             <button class="btn btn-base btn-red" (click)="removeSelectedEmployeeClick(employee.employeeId)">
               X
@@ -34,12 +37,19 @@
           <td>&#160;</td>
           <td>&#160;</td>
           <td>&#160;</td>
+          <td>&#160;</td>
         </tr>
         <tr *ngIf="showAddEmployeeCell">
           <td></td>
           <td><input [(ngModel)]="newEmployeeFirstName" type="text" id="newFirstName" name="newFirstName" form="form1"></td>
           <td><input [(ngModel)]="newEmployeeLastName" type="text" id="newLastName" name="newLastName" form="form1"></td>
-          <td>&#160;</td>
+          <td>
+            <select [(ngModel)]="newEmployeeTypeId" class="select-type">
+              <option value="0">Regular</option>
+              <option value="1">Special</option>
+            </select>
+          </td>
+          <td></td>
         </tr>
       </tbody>
     </table>
@@ -50,7 +60,7 @@
 
     <button *ngIf="deleteIsActive" class="btn btn-base btn-secondary" (click)="cancelRemoveEmployeeClick()">Cancel</button>
     <div>
-      <button *ngIf="showAddEmployeeCell" class="btn btn-base" (click)="submitNewEmployeeClick(newEmployeeFirstName,newEmployeeLastName)">Submit</button>
+      <button *ngIf="showAddEmployeeCell" class="btn btn-base" (click)="submitNewEmployeeClick(newEmployeeFirstName,newEmployeeLastName,newEmployeeTypeId)">Submit</button>
       <button *ngIf="showAddEmployeeCell" class="btn btn-base btn-secondary" (click)="cancelNewEmployeeClick()">Cancel</button>
     </div>
   </div>

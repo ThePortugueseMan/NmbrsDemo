@@ -60,7 +60,8 @@ export class EmployeeFinanceComponent {
           this.getEmployeeFinanceFromService()
         },
         error => console.error(error)
-      );
+    );
+    this.editMode = false;
   }
 }
 

@@ -18,8 +18,10 @@ export class EmployeeComponent {
   public showDetails: boolean = false;
 
   public newEmployee: Employee = NewEmployee();
+  public employeeDetail: Employee = NewEmployee();
   public newEmployeeFirstName: string = '';
   public newEmployeeLastName: string = '';
+  public newEmployeeTypeId: string = '';
 
   public fetchedList = false;
   public detailEmployeeId: string = '';
@@ -83,9 +85,10 @@ export class EmployeeComponent {
     this.deleteIsActive = false;
   }
 
-  submitNewEmployeeClick(firstName: string, lastName: string) {
+  submitNewEmployeeClick(firstName: string, lastName: string, employeeTypeId: string) {
     this.newEmployee.firstName = firstName;
     this.newEmployee.lastName = lastName;
+    this.newEmployee.employeeTypeId = employeeTypeId;
     this.employeeService.setNewEmployee(this.newEmployee)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe(
@@ -102,6 +105,9 @@ export class EmployeeComponent {
 
   detailsClick(employeeId: string) {
     this.detailEmployeeId = employeeId;
+    const selectedEmployeeDetail = this.employeeList.find(employee => employee.employeeId === employeeId);
+    if (selectedEmployeeDetail) this.employeeDetail = selectedEmployeeDetail;
+
     this.showDetails = true;
   }
 
@@ -114,7 +120,7 @@ interface Employee {
   employeeId: string;
   firstName: string;
   lastName: string;
-  //status: string;
+  employeeTypeId: string;
 }
 
 function NewEmployee(): Employee {
@@ -122,6 +128,6 @@ function NewEmployee(): Employee {
     employeeId: '',
     firstName: '',
     lastName: '',
-    //status: ''
+    employeeTypeId: ''
   }
 }

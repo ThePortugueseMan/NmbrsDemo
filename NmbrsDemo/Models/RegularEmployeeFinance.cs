@@ -9,9 +9,9 @@ public class RegularEmployeeFinance : EmployeeFinance
         GrossAnnualSalary = grossAnnualSalary;
     }
 
-    public override void CalculateFields()
-    {
-        annualCostToEmployer = GrossAnnualSalary * EmployerCostPercentageOnGross;
-        netAnnualSalary = GrossAnnualSalary * EmployeePercentageOnGross;
-    }
+    //public override void CalculateFields()
+    //{
+    //    annualCostToEmployer = GrossAnnualSalary * EmployerCostPercentageOnGross;
+    //    netAnnualSalary = GrossAnnualSalary * EmployeePercentageOnGross;
+    //}
 }

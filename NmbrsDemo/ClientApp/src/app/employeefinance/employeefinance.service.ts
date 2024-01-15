@@ -21,7 +21,7 @@ export class EmployeeFinanceService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const requestBody = { grossAnnualSalary: grossAnnualSalary };
     return this.http.post<boolean>(
-      this.baseUrl + this.resource + `?employeeid = ${employeeId}`,
+      this.baseUrl + this.resource + `?employeeid=${employeeId}`,
       requestBody,
       { headers });
   } 
