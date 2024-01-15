@@ -7,12 +7,12 @@ namespace NmbrsDemo.Logic;
 
 public static class EmployeeInfo
 {
-    public static List<Employee> GetEmployeeList()
+    public static List<EmployeeBasicInfo> GetEmployeeList()
     {
         return EmployeeDB.GetEmployeeInfoList();
     }
 
-    public static bool AddNewEmployee(Employee newEmployee)
+    public static bool AddNewEmployee(EmployeeBasicInfo newEmployee)
     {
         return EmployeeDB.AddEmployeeInfo(newEmployee);
     }

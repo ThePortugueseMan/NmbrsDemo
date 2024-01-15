@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EmployeeService } from './employee.service';
+import { EmployeeFinanceComponent } from '../employeefinance/employeefinance.component';
 import { first, last, Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -11,13 +12,20 @@ import { first, last, Subject, takeUntil } from 'rxjs';
 export class EmployeeComponent {
   public employeeList: Employee[] = [];
   public baseUrl: string = '';
+
   public showAddEmployeeCell = false;
   public deleteIsActive = false;
+  public showDetails: boolean = false;
+
   public newEmployee: Employee = NewEmployee();
   public newEmployeeFirstName: string = '';
   public newEmployeeLastName: string = '';
+
   public fetchedList = false;
+  public detailEmployeeId: string = '';
+
   private unsubscribe$ = new Subject<void>();
+  
 
   //public employeeService: EmployeeService;
 
@@ -90,6 +98,11 @@ export class EmployeeComponent {
     this.newEmployee = NewEmployee();
     this.newEmployeeFirstName = '';
     this.newEmployeeLastName = '';
+  }
+
+  detailsClick(employeeId: string) {
+    this.detailEmployeeId = employeeId;
+    this.showDetails = true;
   }
 }
 

@@ -11,6 +11,8 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeService } from './employee/employee.service';
+import { EmployeeFinanceComponent } from './employeefinance/employeefinance.component';
+import { EmployeeFinanceService } from './employeefinance/employeefinance.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { EmployeeService } from './employee/employee.service';
     CounterComponent,
     FetchDataComponent,
     EmployeeComponent,
+    EmployeeFinanceComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +35,7 @@ import { EmployeeService } from './employee/employee.service';
       { path: 'employee', component: EmployeeComponent },
     ])
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, EmployeeFinanceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

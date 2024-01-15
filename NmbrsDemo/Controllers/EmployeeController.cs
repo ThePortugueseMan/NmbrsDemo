@@ -17,13 +17,13 @@ public class EmployeeController : ControllerBase
     }
 
     [HttpGet]
-    public List<Employee> GetList()
+    public List<EmployeeBasicInfo> GetList()
     {
         return EmployeeInfo.GetEmployeeList();
     }
 
     [HttpPost]
-    public bool NewEmployee(Employee employee)
+    public bool NewEmployee(EmployeeBasicInfo employee)
     {
         return EmployeeInfo.AddNewEmployee(employee);
     }

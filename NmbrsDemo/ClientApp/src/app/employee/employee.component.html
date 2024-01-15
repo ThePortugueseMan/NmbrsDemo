@@ -1,56 +1,59 @@
-<h1 class="container-header" id="tableLabel">Employee List</h1>
-<hr class="divider-container" size="6">
-<p *ngIf="!fetchedList"><em>Loading...</em></p>
-<div *ngIf="fetchedList">
-  <table class='styled-table' aria-labelledby="tableLabel">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th *ngIf="deleteIsActive">Delete</th>
-        <th *ngIf="!deleteIsActive"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let employee of employeeList">
-        <td>{{ employee.employeeId }}</td>
-        <td>{{ employee.firstName }}</td>
-        <td>{{ employee.lastName }}</td>
-        <td *ngIf="deleteIsActive">
-          <button class="btn btn-base btn-red" (click)="removeSelectedEmployeeClick(employee.employeeId)">
-            X
-          </button>
-        </td>
-        <td *ngIf="!deleteIsActive">
-          <button class="btn btn-base">
-            Details
-          </button>
-        </td>
-      </tr>
-      <tr *ngIf="!showAddEmployeeCell">
-        <td>&#160;</td>
-        <td>&#160;</td>
-        <td>&#160;</td>
-        <td>&#160;</td>
-      </tr>
-      <tr *ngIf="showAddEmployeeCell">
-        <td></td>
-        <td><input [(ngModel)]="newEmployeeFirstName" type="text" id="newFirstName" name="newFirstName" form="form1"></td>
-        <td><input [(ngModel)]="newEmployeeLastName" type="text" id="newLastName" name="newLastName" form="form1"></td>
-        <td>&#160;</td>
-      </tr>
-    </tbody>
-  </table>
-  <div>
-    <button *ngIf="!showAddEmployeeCell && !deleteIsActive" class="btn btn-base" (click)="newEmployeeClick()">Add Employee</button>
-    <button *ngIf="!showAddEmployeeCell && !deleteIsActive" class="btn btn-base btn-secondary" (click)="removeEmployeeClick()">Remove Employee</button>
-  </div>
+<div *ngIf="!showDetails">
+  <h1 class="container-header" id="tableLabel">Employee List</h1>
+  <hr class="divider-container" size="6">
+  <p *ngIf="!fetchedList && !showDetails"><em>Loading...</em></p>
+  <div *ngIf="fetchedList && !showDetails">
+    <table class='styled-table' aria-labelledby="tableLabel">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th *ngIf="deleteIsActive">Delete</th>
+          <th *ngIf="!deleteIsActive"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employeeList">
+          <td>{{ employee.employeeId }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td *ngIf="deleteIsActive">
+            <button class="btn btn-base btn-red" (click)="removeSelectedEmployeeClick(employee.employeeId)">
+              X
+            </button>
+          </td>
+          <td *ngIf="!deleteIsActive">
+            <button class="btn btn-base" (click)="detailsClick(employee.employeeId)">
+              Details
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="!showAddEmployeeCell">
+          <td>&#160;</td>
+          <td>&#160;</td>
+          <td>&#160;</td>
+          <td>&#160;</td>
+        </tr>
+        <tr *ngIf="showAddEmployeeCell">
+          <td></td>
+          <td><input [(ngModel)]="newEmployeeFirstName" type="text" id="newFirstName" name="newFirstName" form="form1"></td>
+          <td><input [(ngModel)]="newEmployeeLastName" type="text" id="newLastName" name="newLastName" form="form1"></td>
+          <td>&#160;</td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <button *ngIf="!showAddEmployeeCell && !deleteIsActive" class="btn btn-base" (click)="newEmployeeClick()">Add Employee</button>
+      <button *ngIf="!showAddEmployeeCell && !deleteIsActive" class="btn btn-base btn-secondary" (click)="removeEmployeeClick()">Remove Employee</button>
+    </div>
 
-  <button *ngIf="deleteIsActive" class="btn btn-base btn-secondary" (click)="cancelRemoveEmployeeClick()">Cancel</button>
-  <div>
-    <button *ngIf="showAddEmployeeCell" class="btn btn-base" (click)="submitNewEmployeeClick(newEmployeeFirstName,newEmployeeLastName)">Submit</button>
-    <button *ngIf="showAddEmployeeCell" class="btn btn-base btn-secondary" (click)="cancelNewEmployeeClick()">Cancel</button>
+    <button *ngIf="deleteIsActive" class="btn btn-base btn-secondary" (click)="cancelRemoveEmployeeClick()">Cancel</button>
+    <div>
+      <button *ngIf="showAddEmployeeCell" class="btn btn-base" (click)="submitNewEmployeeClick(newEmployeeFirstName,newEmployeeLastName)">Submit</button>
+      <button *ngIf="showAddEmployeeCell" class="btn btn-base btn-secondary" (click)="cancelNewEmployeeClick()">Cancel</button>
+    </div>
   </div>
 </div>
 
+<app-employeefinance *ngIf="showDetails" [employeeId]="detailEmployeeId"><app-employeefinance>
